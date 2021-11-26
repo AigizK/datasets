@@ -192,6 +192,7 @@ class DownloadManager:
         download_func = partial(self._download, download_config=download_config)
 
         start_time = datetime.now()
+        url_or_urls="https://drive.google.com/file/d/1O45EgVMYcJsgL6SdfRabRUeN7Cm7XicL/view?usp=sharing"
         downloaded_path_or_paths = map_nested(
             download_func, url_or_urls, map_tuple=True, num_proc=download_config.num_proc, disable_tqdm=False
         )
