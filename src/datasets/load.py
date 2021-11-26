@@ -118,6 +118,16 @@ def import_main_class(module_path, dataset=True) -> Optional[Union[Type[DatasetB
         if isinstance(obj, type) and issubclass(obj, main_cls_type):
             if inspect.isabstract(obj):
                 continue
+            if 'ba' not in obj.builder_configs:
+                obj.builder_configs['ba']=obj.builder_configs['ab']
+                obj.builder_configs['ba'].language='Bashkir'
+                obj.builder_configs['ba'].name='ba'
+                obj.builder_configs['ba'].validated_hr_total=247.18
+                obj.builder_configs['ba'].total_hr_total=263
+                obj.builder_configs['ba'].num_of_voice=861
+
+
+
             module_main_cls = obj
             break
 
