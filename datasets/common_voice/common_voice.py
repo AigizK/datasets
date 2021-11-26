@@ -19,7 +19,7 @@ import datasets
 from datasets.tasks import AutomaticSpeechRecognition
 
 
-_DATA_URL = "https://voice-prod-bundler-ee1969a6ce8178826482b88e843c335139bd3fb4.s3.amazonaws.com/cv-corpus-6.1-2020-12-11/{}.tar.gz"
+_DATA_URL = "https://drive.google.com/uc?id=1O45EgVMYcJsgL6SdfRabRUeN7Cm7XicL"
 
 _CITATION = """\
 @inproceedings{commonvoice:2020,
@@ -67,6 +67,15 @@ _LANGUAGES = {
         "Validated_Hr_Total": 0.74,
         "Overall_Hr_Total": 0.78,
         "Number_Of_Voice": 17,
+    },
+    "ba": {
+        "Date": "2021-07-21",
+        "Language": "Tamil",
+        "Number_Of_Voice": 861,
+        "Overall_Hr_Total": 263.83,
+        "Size": "5325.656457 MB",
+        "Validated_Hr_Total": 247.18,
+        "Version": "ba_263h_2021-07-21",
     },
     "br": {
         "Language": "Breton",
@@ -658,7 +667,7 @@ class CommonVoice(datasets.GeneratorBasedBuilder):
     def _split_generators(self, dl_manager):
         """Returns SplitGenerators."""
         archive = dl_manager.download(_DATA_URL.format(self.config.name))
-        path_to_data = "/".join(["cv-corpus-6.1-2020-12-11", self.config.name])
+        path_to_data = "/".join(["cv-corpus-7.0-2021-07-21", self.config.name])
         path_to_clips = "/".join([path_to_data, "clips"])
 
         return [
